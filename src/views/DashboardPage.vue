@@ -25,10 +25,11 @@
 
 <style scoped>
 main {
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2em;
+  gap: 1em;
   justify-content: center;
   align-items: center;
 }

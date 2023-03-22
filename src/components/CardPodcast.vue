@@ -8,46 +8,54 @@
 
 <template>
 	<div class="card">
-		<li>
-			<img class="card__img" :src="podcast['im:image'][0].label" />
-			<p class="card__title">{{ podcast["im:name"].label }}</p> 
-			<p class="card__author">Author: {{ podcast["im:artist"].label }}</p> 
-		</li>
+		<img
+			class="card__img"
+			:src="podcast['im:image'][0].label"
+		/>
+		<p class="card__title">{{ podcast["im:name"].label }}</p>
+		<p class="card__author">
+			Author: {{ podcast["im:artist"].label }}
+		</p>
 	</div>
 </template>
 
 <style lang="scss">
 	.card {
-    margin: 0 auto;
-    margin-bottom: 3em;
-		width: 12em;
-		height: 7em;
-		background-color: red;
+		margin: 0 auto;
+		margin-bottom: 3em;
+		width: 15em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 		color: black;
-    text-align: center;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    &__title {
-      position: relative;
-      bottom: 50px;
-      font-size: .8em;
-    }
+		padding: 0.5em;
+		text-align: center;
+    // position: relative;
+		border: 1px solid rgba(163, 153, 163, 0.3);
+		-webkit-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
+		-moz-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
+		box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
 
-    &__author {
-      position: relative;
-      bottom: 50px;
-      font-size: .8em;
-    }
+		&__title {
+			position: relative;
+			bottom: 50px;
+			font-size: 1em;
+		}
 
-    &__img {
-      border-radius: 50%;
-      width: 50%;
-      height: 70%;
-      position: relative;
-      bottom: 55px;
-      left: 50px;
-    }
+		&__author {
+			position: relative;
+			bottom: 45px;
+			font-size: 0.8em;
+			color: grey;
+		}
 
+		&__img {
+			border-radius: 50%;
+			width: 50%;
+			height: 70%;
+			position: relative;
+			bottom: 65px;
+		}
 	}
 </style>
