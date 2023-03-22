@@ -4,10 +4,10 @@ import axios from "axios";
 class PodcastsService {
   podcasts;
   authors;
+  url="https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
 
   constructor() {
     this.podcasts = ref([]);
-    this.authors = ref([]);
   }
 
   getPodcasts() {
@@ -20,20 +20,11 @@ class PodcastsService {
 
   async fetchAllPodcasts() {
     try {
-      await axios.get("https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json").then((response) => {
+      await axios.get(this.url).then((response) => {
         this.podcasts.value = response.data.feed.entry;
       });
     } catch (err) {}
   }
-
-  async fetchAllAuthors() {
-    try {
-      await axios.get("https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json").then((response) => {
-        this.authors.value = response.data.feed.author;
-      });
-    } catch (err) {}
-  }
-
 }
 
 export default PodcastsService;

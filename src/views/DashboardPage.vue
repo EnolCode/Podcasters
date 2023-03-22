@@ -1,25 +1,35 @@
 <script setup>
-import { onBeforeMount, ref } from "vue";
-import PodcastsService from "../services/PodcastService";
-import CardPodcast from "../components/CardPodcast.vue";
+	import { onBeforeMount, ref } from "vue";
+	import PodcastsService from "../services/PodcastService";
+	import CardPodcast from "../components/CardPodcast.vue";
+	import HeadPage from "../components/HeadPage.vue";
 
-const podcastService = new PodcastsService();
-const podcasts = ref([]);
-const authors = ref([]);
+	const podcastService = new PodcastsService();
+	const podcasts = ref([]);
 
-onBeforeMount(async () => {
-  await podcastService.fetchAllPodcasts();
-  await podcastService.fetchAllAuthors();
- podcasts.value = podcastService.getPodcasts();
- authors.value = podcastService.getAuthors();
-  console.log(podcasts.value);
-  console.log(authors.value);
-});
+	onBeforeMount(async () => {
+		await podcastService.fetchAllPodcasts();
+		podcasts.value = podcastService.getPodcasts();
+	});
 </script>
 
 <template>
-  <CardPodcast v-for="podcast in podcasts" :podcast="podcast" />
-  <!-- <h1 v-for="podcast in podcasts">{{ podcast }}</h1> -->
+  <HeadPage />
+	<main>
+		<CardPodcast
+			v-for="podcast in podcasts"
+			:podcast="podcast"
+		/>
+	</main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+</style>
