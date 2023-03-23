@@ -1,30 +1,35 @@
 <script setup>
-	import { onBeforeMount, ref } from "vue";
-	import PodcastsService from "../services/PodcastService";
-	import CardPodcast from "../components/CardPodcast.vue";
-	import HeadPage from "../components/HeadPage.vue";
+import { onBeforeMount, ref } from "vue";
+import PodcastsService from "../services/PodcastService";
+import CardPodcast from "../components/CardPodcast.vue";
+import HeadPage from "../components/HeadPage.vue";
+import FilterBar from "../components/FilterBar.vue";
 
-	const podcastService = new PodcastsService();
-	const podcasts = ref([]);
+const podcastService = new PodcastsService();
+const podcasts = ref([]);
 
-	onBeforeMount(async () => {
-		await podcastService.fetchAllPodcasts();
-		podcasts.value = podcastService.getPodcasts();
-	});
+onBeforeMount(async () => {
+  await podcastService.fetchAllPodcasts();
+  podcasts.value = podcastService.getPodcasts();
+});
 </script>
 
 <template>
-  <HeadPage />
-	<main>
-		<CardPodcast
-			v-for="podcast in podcasts"
-			:podcast="podcast"
-		/>
-	</main>
+  <main>
+    <HeadPage />
+    <FilterBar />
+    <section>
+      <CardPodcast v-for="podcast in podcasts" :podcast="podcast" />
+    </section>
+  </main>
 </template>
 
 <style scoped>
-main {
+main{
+  display: flex;
+  flex-direction: column;;
+}
+section {
   margin: 0 auto;
   width: 80%;
   display: grid;
