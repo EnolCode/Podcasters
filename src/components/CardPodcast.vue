@@ -22,7 +22,7 @@
 <style lang="scss">
 	.card {
 		margin: 0 auto;
-		margin-bottom: 3em;
+		margin-bottom: 5em;
 		width: 15em;
 		display: flex;
 		flex-direction: column;

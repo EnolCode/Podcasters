@@ -26,12 +26,12 @@ onBeforeMount(async () => {
 
 <style scoped>
 main{
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;;
+  flex-direction: column;
+  width: 80%;
 }
 section {
-  margin: 0 auto;
-  width: 80%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;

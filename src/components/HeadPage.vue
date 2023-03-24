@@ -14,5 +14,6 @@
         display: block;
         border-bottom: 1px solid map-get(c.$colors, "grey-blue");
         margin-bottom: 2em;
+        font-weight: bold;
 	}
 </style>
