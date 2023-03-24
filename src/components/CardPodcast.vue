@@ -24,14 +24,13 @@
 		margin: 0 auto;
 		margin-bottom: 3em;
 		width: 15em;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		color: black;
 		padding: 0.5em;
 		text-align: center;
-    // position: relative;
 		border: 1px solid rgba(163, 153, 163, 0.3);
 		-webkit-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
 		-moz-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
