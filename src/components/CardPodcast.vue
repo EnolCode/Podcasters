@@ -35,7 +35,7 @@
 		-webkit-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
 		-moz-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
 		box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
-
+	
 		&__title {
 			position: relative;
 			bottom: 50px;
