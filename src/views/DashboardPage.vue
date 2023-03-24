@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, ref } from "vue";
+import { onBeforeMount, ref, computed } from "vue";
 import PodcastsService from "../services/PodcastService";
 import CardPodcast from "../components/CardPodcast.vue";
 import HeadPage from "../components/HeadPage.vue";
@@ -7,19 +7,28 @@ import FilterBar from "../components/FilterBar.vue";
 
 const podcastService = new PodcastsService();
 const podcasts = ref([]);
+const searchPodcast = ref("");
 
 onBeforeMount(async () => {
   await podcastService.fetchAllPodcasts();
   podcasts.value = podcastService.getPodcasts();
 });
+
+const filteredPodcasts = computed(() => {
+  if (!searchPodcast.value) return podcasts.value
+  return podcasts.value.filter(podcast => 
+    podcast["im:name"].label.toLowerCase().includes(searchPodcast.value.toLowerCase()) ||
+    podcast["im:artist"].label.toLowerCase().includes(searchPodcast.value.toLowerCase())
+  )
+})
 </script>
 
 <template>
   <main>
     <HeadPage />
-    <FilterBar />
+    <FilterBar v-model="searchPodcast" />
     <section>
-      <CardPodcast v-for="podcast in podcasts" :podcast="podcast" />
+      <CardPodcast v-for="podcast in filteredPodcasts" :podcast="podcast" />
     </section>
   </main>
 </template>

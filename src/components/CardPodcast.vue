@@ -10,7 +10,7 @@
 	<div class="card">
 		<img
 			class="card__img"
-			:src="podcast['im:image'][0].label"
+			:src="podcast['im:image'][2].label"
 		/>
 		<p class="card__title">{{ podcast["im:name"].label }}</p>
 		<p class="card__author">
